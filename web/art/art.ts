@@ -1,7 +1,9 @@
 import * as THREE from 'three'
 import OrbitControls from 'three-orbitcontrols'
-import vertexShader from './shader/vertexShader.vert'
-import fragmentShader from './shader/fragmentShader.frag'
+// @ts-ignore
+import vertexShader from '~/art/shader/vertexShader.vert'
+// @ts-ignore
+import fragmentShader from '~/art/shader/fragmentShader.frag'
 
 export const Art = function () {
   const clock = new THREE.Clock()
@@ -11,11 +13,11 @@ export const Art = function () {
   const SHADER_QUALITY = 0.5
 
   let geometry, mesh
-  const vertices = []
-  const uvs = []
-  const indices = []
-  const paddings = []
-  const size = []
+  const vertices: number[] = []
+  const uvs: number[] = []
+  const indices: number[] = []
+  const paddings: number[] = []
+  const size: number[] = []
 
   const uniforms = {
     // Second
@@ -39,7 +41,9 @@ export const Art = function () {
   const z = stageHeight / Math.tan((fov * Math.PI) / 360) / 2
   camera.position.z = z
 
-  const canvas = document.getElementById('canvas')
+  const canvas: HTMLCanvasElement = document.getElementById(
+    'canvas'
+  ) as HTMLCanvasElement
   const renderer = new THREE.WebGLRenderer({
     canvas,
   })
